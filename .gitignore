@@ -1,0 +1,37 @@
+# Planning docs (private)
+CLAUDE.md
+claude/
+PRODUCT.md
+DESIGN.md
+.impeccable/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Backend data (DB, downloaded CSVs, trained models)
+backend/data/
+backend/ml/models/
+backend/ml/cache/
+*.db
+*.sqlite
+*.sqlite3
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
