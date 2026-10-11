@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/* Star-atlas palette: night-sky ground, indigo plates, chart-blue rules,
+   stardust ink, emerald as the single signal colour. */
+@theme {
+  --color-night: #0a1021;
+  --color-plate: #0f1930;
+  --color-raised: #16233f;
+  --color-rule: #24374f;
+  --color-rule-soft: #1a2944;
+  --color-fog: #8a95a8;
+  --color-mist: #b9c2d0;
+  --color-star: #eef0e8;
+  --color-emerald: #34d399;
+  --color-emerald-deep: #1f8f68;
+  --color-emerald-glint: #5ee0b0;
+  --color-ember: #e8765a;
+
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "EB Garamond", "Iowan Old Style", Georgia, serif;
+
+  --ease-sidereal: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-night text-star font-sans antialiased;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+  ::selection {
+    background: rgb(52 211 153 / 0.28);
+    color: var(--color-star);
+  }
+  :focus-visible {
+    outline: 1.5px solid var(--color-emerald);
+    outline-offset: 2px;
+  }
+  input,
+  select,
+  button {
+    caret-color: var(--color-emerald);
+  }
+  a {
+    text-underline-offset: 3px;
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-rule) transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-rule);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@utility caps {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility display {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
