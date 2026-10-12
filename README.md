@@ -183,6 +183,7 @@ python -m ml.build_elo     # replays match history, builds Elo ratings
 python -m ml.build_dataset # builds the pairwise training set
 python -m ml.train         # trains the model
 python -m ml.backtest      # scores the held-out test set for the Model Performance tab
+python -m ml.fit_elo_rank_curve  # fits the Elo-to-rank curve for the Rankings vs Model tab
 uvicorn app.main:app --port 8002
 
 # Frontend (separate terminal)

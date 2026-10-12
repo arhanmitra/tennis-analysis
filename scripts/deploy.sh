@@ -2,9 +2,9 @@
 # Sync this project to the Pi and restart its services. Mirrors the deploy
 # pattern used by the other portfolio dashboards on the same Pi.
 #
-# .env files are intentionally excluded by --exclude below (scp/rsync skips
-# them per CLAUDE.md) — create backend/.env on the Pi manually after the
-# first deploy, from backend/.env.example.
+# .env files are intentionally excluded by --exclude below, so secrets never
+# travel with a deploy. Create backend/.env on the Pi manually after the first
+# deploy, from backend/.env.example.
 #
 # First-time setup on the Pi (run once, manually, not by this script):
 #   cd ~/atp-predictor-dashboard/backend && python3 -m venv .venv && \
@@ -31,6 +31,9 @@ rsync -avz --delete \
   --exclude "frontend/dist/" \
   --exclude "CLAUDE.md" \
   --exclude "claude/" \
+  --exclude "PRODUCT.md" \
+  --exclude "DESIGN.md" \
+  --exclude ".impeccable/" \
   ./ "${PI_USER}@${PI_HOST}:${REMOTE_DIR}/"
 
 ssh "${PI_USER}@${PI_HOST}" bash -s <<'EOF'
