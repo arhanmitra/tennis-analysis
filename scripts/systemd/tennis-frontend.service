@@ -1,0 +1,14 @@
+[Unit]
+Description=ATP Predictor frontend (Vite preview, port 5175)
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/atp-predictor-dashboard/frontend
+ExecStart=/usr/bin/npm run preview
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

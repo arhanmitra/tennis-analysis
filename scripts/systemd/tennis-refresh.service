@@ -1,0 +1,7 @@
+[Unit]
+Description=ATP Predictor daily data refresh (current season + Elo replay)
+
+[Service]
+Type=oneshot
+User=pi
+ExecStart=/home/pi/atp-predictor-dashboard/scripts/refresh.sh

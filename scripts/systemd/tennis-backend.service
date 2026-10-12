@@ -1,0 +1,15 @@
+[Unit]
+Description=ATP Predictor backend (FastAPI, port 8002)
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/atp-predictor-dashboard/backend
+Environment=PATH=/home/pi/atp-predictor-dashboard/backend/.venv/bin
+ExecStart=/home/pi/atp-predictor-dashboard/backend/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8002
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
