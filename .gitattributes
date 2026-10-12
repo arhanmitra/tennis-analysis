@@ -1,0 +1,5 @@
+# Shell scripts and systemd units run on the Pi (Linux). Keep them LF even on a
+# Windows checkout, or bash fails with "\r: command not found" after deploy.
+*.sh       text eol=lf
+*.service  text eol=lf
+*.timer    text eol=lf
